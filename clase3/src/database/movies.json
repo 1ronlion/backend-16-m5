@@ -1,5 +1,5 @@
 {
-  "info": { "name": "Movies database API", "movies": 12 },
+  "info": { "name": "Movies database API", "movies": 13 },
   "movies": [
     {
       "id": "1d12d10c-4c9a-41e7-87d6-11c30d37f095",
@@ -96,6 +96,14 @@
       "director": "Martin Scorsese",
       "cast": ["Robert De Niro", "Jodie Foster", "Cybill Shepherd"],
       "rating": 8.3
+    },
+    {
+      "id": "3e566f34-f965-48ac-8324-4ec54728145f",
+      "name": "Dune",
+      "year": 2024,
+      "director": "Villenueve",
+      "cast": ["Thimotee Chalamet", "Zendaya"],
+      "rating": 9
     }
   ]
 }
