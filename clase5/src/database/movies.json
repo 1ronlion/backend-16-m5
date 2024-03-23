@@ -1,0 +1,121 @@
+{
+  "info": {
+    "name": "Movies database API",
+    "movies": 14,
+    "updatedAt": "2024-03-22T22:17:00-03:00"
+  },
+  "movies": [
+    {
+      "id": "1d12d10c-4c9a-41e7-87d6-11c30d37f095",
+      "name": "Scarface",
+      "year": 1983,
+      "director": "Brian De Palma",
+      "cast": ["Al Pacino", "Michelle Pfeiffer", "Steven Bauer"],
+      "rating": 8.3
+    },
+    {
+      "id": "feefc3c4-34c1-4e82-b493-9de4f9e31467",
+      "name": "The Godfather",
+      "year": 99990909,
+      "director": "Clint Eastwood",
+      "cast": ["Marlon Brando", "Al Pacino", "James Caan"],
+      "rating": 9.2
+    },
+    {
+      "id": "fa0be0d2-c8bf-4d92-96c6-45b5f6d477c3",
+      "name": "The Godfather Part II",
+      "year": 1974,
+      "director": "Francis Ford Coppola",
+      "cast": ["Al Pacino", "Robert De Niro", "Robert Duvall"],
+      "rating": 9
+    },
+    {
+      "id": "a21b0b38-4ef3-4296-a482-52bbd3d2b3e5",
+      "name": "The Godfather Part III",
+      "year": 1990,
+      "director": "Francis Ford Coppola",
+      "cast": ["Al Pacino", "Diane Keaton", "Andy Garcia"],
+      "rating": 7.6
+    },
+    {
+      "id": "8ec8ec47-20e9-4c17-af25-5b94e674c7cd",
+      "name": "Casino",
+      "year": 1995,
+      "director": "Martin Scorsese",
+      "cast": ["Robert De Niro", "Sharon Stone", "Joe Pesci"],
+      "rating": 8.2
+    },
+    {
+      "id": "5a12bfad-c9f4-480a-a8ec-1509d1c0b36b",
+      "name": "Goodfellas",
+      "year": 1990,
+      "director": "Martin Scorsese",
+      "cast": ["Robert De Niro", "Ray Liotta", "Joe Pesci"],
+      "rating": 8.7
+    },
+    {
+      "id": "682b771c-ff65-482d-9a3a-2c9c3630b9c7",
+      "name": "JFK",
+      "year": 1991,
+      "director": "Oliver Stone",
+      "cast": ["Kevin Costner", "Tommy Lee Jones", "Kevin Bacon"],
+      "rating": 8
+    },
+    {
+      "id": "e9d556b3-635f-4a14-bdf5-1193dab20758",
+      "name": "Platoon",
+      "year": 1986,
+      "director": "Oliver Stone",
+      "cast": ["Charlie Sheen", "Tom Berenger", "Willem Dafoe"],
+      "rating": 8.1
+    },
+    {
+      "id": "da69eb37-6ea4-4b69-9e31-38be02e58cd4",
+      "name": "Apocalypse Now",
+      "year": 1979,
+      "director": "Francis Ford Coppola",
+      "cast": ["Martin Sheen", "Marlon Brando", "Robert Duvall"],
+      "rating": 8.4
+    },
+    {
+      "id": "d86e3165-3f14-4e3e-9cda-79f5db99e08b",
+      "name": "Wall Street",
+      "year": 1987,
+      "director": "Oliver Stone",
+      "cast": ["Charlie Sheen", "Michael Douglas", "Daryl Hannah"],
+      "rating": 7.4
+    },
+    {
+      "id": "4c6d6602-d46b-4da2-98eb-4c5d2a490693",
+      "name": "Dances with Wolves",
+      "year": 1990,
+      "director": "Kevin Costner",
+      "cast": ["Kevin Costner", "Mary McDonnell", "Graham Greene"],
+      "rating": 8
+    },
+    {
+      "id": "b2f3c5bb-23d0-4d0d-90e6-9d20792edff0",
+      "name": "Taxi Driver",
+      "year": "989898",
+      "director": "Martin Scorsese",
+      "cast": ["Robert De Niro", "Jodie Foster", "Cybill Shepherd"],
+      "rating": 8.3
+    },
+    {
+      "id": "3e566f34-f965-48ac-8324-4ec54728145f",
+      "name": "Dune",
+      "year": 2024,
+      "director": "Villenueve",
+      "cast": ["Thimotee Chalamet", "Zendaya"],
+      "rating": 9
+    },
+    {
+      "id": "07370af7-5951-4c6c-bb3b-b42ba18dc078",
+      "name": "Hunger games",
+      "year": 2012,
+      "director": "Francis Lawrence",
+      "cast": ["Jennifer Lawrence"],
+      "rating": 7.5
+    }
+  ]
+}
