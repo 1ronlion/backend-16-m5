@@ -1,0 +1,15 @@
+{
+  "info": { "name": "Users database", "users": 2 },
+  "users": [
+    {
+      "id": "0ac7be2d-cddb-4558-a687-4d21b7be7e85",
+      "name": "Juan",
+      "email": "juan@juan.com.ar"
+    },
+    {
+      "id": "db559620-7c6b-4ff4-a7d9-fe0ed53d5f86",
+      "name": "María",
+      "email": "maria@maria.com.mx"
+    }
+  ]
+}
