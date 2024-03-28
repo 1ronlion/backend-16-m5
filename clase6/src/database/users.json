@@ -2,9 +2,11 @@
   "info": { "name": "Users database", "users": 1 },
   "users": [
     {
-      "id": "0ac7be2d-cddb-4558-a687-4d21b7be7e85",
-      "name": "Juan",
-      "email": "juan@juan.com.ar"
+      "id": "e1413a4a-35bf-436c-b695-a985fdbd686e",
+      "name": "Leo",
+      "email": "juan@juan.com.ar",
+      "password": "1234",
+      "token": "3bafea6e-c580-4e3a-8c17-22ea3c2a2fb7"
     }
   ]
 }
