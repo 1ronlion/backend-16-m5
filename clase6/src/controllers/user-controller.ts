@@ -1,22 +1,23 @@
 import UserModel from "../model/user-model";
 import { Request, Response } from 'express';
+import { validateUser, validatePartialUser } from "../schemas/user-schema";
 
 abstract class UserController{
 
-    private static validateUser(data: any){
+    // private static validateUser(data: any){
 
-        const {name, email, password} = data
+    //     const {name, email, password} = data
 
-        if(typeof name === 'string' &&
-           typeof email === 'string' && 
-           typeof password === 'string' &&
-           email.includes("@")
-        ){
-            return true
+    //     if(typeof name === 'string' &&
+    //        typeof email === 'string' && 
+    //        typeof password === 'string' &&
+    //        email.includes("@")
+    //     ){
+    //         return true
 
-        }
-            return false
-    }
+    //     }
+    //         return false
+    // }
 
 
     static async getAll(req: Request, res: Response){
@@ -46,7 +47,18 @@ abstract class UserController{
     static async login(req: Request, res: Response){
 
         const data = req.body
+        const validateData = validatePartialUser(data)
+
+        if (!validateData.success){
+            const errorMsg = validateData.error.issues.map(value => value.message)
+            return res.status(400).json({error: errorMsg})
+        }
+
         const userLogged = await UserModel.login(data)
+
+        if(userLogged === 409){
+            return res.status(409).json({message: "Usuario ya logueado"})
+        }
 
         if(userLogged === 404){
             return res.status(404).json({message: "Usuario no encontrado"})
@@ -63,13 +75,11 @@ abstract class UserController{
     static async create(req: Request, res: Response){
 
         const data = req.body
-        const validateData = UserController.validateUser(data)
-        console.log("🚀 ~ UserController ~ create ~ validateData:", validateData)
+        const validateData = validateUser(data)
 
-        if (!validateData){
-        //Cannot set headers after they are sent to the client
-          return res.status(400).json({message: "Formato de informacion invalida"})
-
+        if (!validateData.success){
+          const errorMsg = validateData.error.issues.map(value => value.message)
+          return res.status(400).json({error: errorMsg})
         }
 
         const newUser = await UserModel.createUser(data)
@@ -98,6 +108,29 @@ abstract class UserController{
             return res.status(200).json({message: "Usuario eliminado", userDeleted})
 
         }
+
+    }
+
+    static async logout(req: Request, res: Response){
+
+        const username = req.body.name
+
+        const checkUser = await UserModel.logout(username)
+        
+        if (checkUser === 404) {
+            return res.status(404).json({ message: "Usuario no encontrado" })
+        }
+
+        if (checkUser === 409) {
+            return res.status(409).json({ message: "Usuario no logueado" })
+        }
+
+        if (checkUser === 202) {
+            return res.status(202).json({ message: "Logout!" })
+        }
+        
+        
+        return res.status(500).json({message: "Server error"})
 
     }
 

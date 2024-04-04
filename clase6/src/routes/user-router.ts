@@ -13,7 +13,7 @@ UserRouter.get("/:id", UserController.getById)
 UserRouter.post("/login", UserController.login)
 
 // PATCH | 127.0.0.1/api/users/:id --> Logoyt de usuario.
-UserRouter.patch("/logout")
+UserRouter.patch("/logout", UserController.logout)
 
 // POST | 127.0.0.1/api/users --> Dar de alta nuevo usuario.
 UserRouter.post("/", UserController.create)
