@@ -9,6 +9,7 @@ import { ChartRouter } from "./routes/chart-router";
 //Middleware
 app.use(express.json())
 
+
 //Routes
 app.use("/api/users/", UserRouter)
 app.use("/api/charts/", ChartRouter)
@@ -23,3 +24,4 @@ app.get("/api", (req,res)=> {
 
 
 app.listen(PORT, () => console.log("Server running on port:", PORT))
+

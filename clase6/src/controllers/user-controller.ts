@@ -96,8 +96,8 @@ abstract class UserController{
 
     static async delete(req: Request, res: Response){
 
-        const userId = req.params.id
-        const userDeleted = await UserModel.delete(userId)
+        const username = req.body.name
+        const userDeleted = await UserModel.delete(username)
 
         if(userDeleted === 404){
 
@@ -113,17 +113,17 @@ abstract class UserController{
 
     static async logout(req: Request, res: Response){
 
-        const username = req.body.name
+        const userId = req.params.id
 
-        const checkUser = await UserModel.logout(username)
+        const checkUser = await UserModel.logout(userId)
         
-        if (checkUser === 404) {
-            return res.status(404).json({ message: "Usuario no encontrado" })
-        }
+        // if (checkUser === 404) {
+        //     return res.status(404).json({ message: "Usuario no encontrado" })
+        // }
 
-        if (checkUser === 409) {
-            return res.status(409).json({ message: "Usuario no logueado" })
-        }
+        // if (checkUser === 409) {
+        //     return res.status(409).json({ message: "Usuario no logueado" })
+        // }
 
         if (checkUser === 202) {
             return res.status(202).json({ message: "Logout!" })

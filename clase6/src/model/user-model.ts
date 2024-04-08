@@ -96,9 +96,9 @@ abstract class UserModel {
 
     static async update(){}
 
-    static async delete(id:string){
+    static async delete(username:string){
 
-        const findUser = db.users.findIndex((user)=> user.id === id)
+        const findUser = db.users.findIndex((user)=> user.name === username)
 
         if(findUser === -1){ return 404 }
 
@@ -114,13 +114,13 @@ abstract class UserModel {
 
     }
 
-    static async logout (username: any){
+    static async logout (userId: any){
 
-       const findUser = await this.findUserByName(username)
+       const findUser = await this.findUser(userId)
 
-       if(!findUser) return 404
+        if(!findUser) return 404
 
-       if(findUser.token === "") return 409 
+    //    if(findUser.token === "") return 409 
 
        findUser.token = ""
 
