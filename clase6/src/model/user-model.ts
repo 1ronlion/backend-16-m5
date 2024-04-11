@@ -2,6 +2,7 @@ import db from "../database/users.json"
 import { writeFile } from "jsonfile"
 import { randomUUID } from "node:crypto"
 import { createHash } from "node:crypto"
+import registerEvent from "../middlewares/events"
 
 const PATH = './src/database/users.json'
 
@@ -46,14 +47,17 @@ abstract class UserModel {
          return db.users.find((user) => user.id === id) 
     }
     
-    private static async findUserByName(username: string){
+    static async findUserByName(username: string){
         return db.users.find((user) => user.name === username) 
     }
 
+    static async checkToken(usertoken:string){
+        return db.users.find((user) => user.token === usertoken)
+    }
 
     static async createUser(data: any){
 
-        const {name, email, password} = data
+        const {name, email, password, isAdmin} = data
         const id = randomUUID()
         const hashPass = this.encrypt(password)
 
@@ -61,7 +65,7 @@ abstract class UserModel {
 
         if(findUser) return 400
 
-        const newUser = { id, name, email, password: hashPass, token: ""}
+        const newUser = { id, name, email, password: hashPass, token: "", isAdmin}
 
         db.users.push(newUser)
         
@@ -88,9 +92,11 @@ abstract class UserModel {
         const token = randomUUID()
         findUser.token = token
 
+        await registerEvent(token, name)
+
         await this.writeDB()
 
-        return 202
+        return token
 
     }
 

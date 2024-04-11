@@ -2,17 +2,22 @@ import { Request, Response, NextFunction } from 'express';
 import UserModel from '../model/user-model';
 
 async function isAuth(req: Request, res: Response, next: NextFunction) {
-    
-   let userId = req.params.id
 
-   let userLogged = await UserModel.findUser(userId)
+    let userToken = req.header("token") as string
 
-   if(userLogged?.token === ""){
 
-       return res.status(401).json({message: "Unauthorized"})
-       
+    if (userToken === undefined) {
+        return res.status(401).json({ message: "Unauthorized" })
     }
 
+    let userLogged = await UserModel.checkToken(userToken)
+
+    res.locals.user = userLogged
+
+    if (userLogged === undefined){
+        return res.status(401).json({ message: "Unauthorized" })
+    }
+    
 
     next()
    

@@ -44,6 +44,7 @@ abstract class UserController{
         }
     }
 
+
     static async login(req: Request, res: Response){
 
         const data = req.body
@@ -55,6 +56,7 @@ abstract class UserController{
         }
 
         const userLogged = await UserModel.login(data)
+
 
         if(userLogged === 409){
             return res.status(409).json({message: "Usuario ya logueado"})
@@ -68,7 +70,7 @@ abstract class UserController{
             return res.status(400).json({message: "Contraseña incorrecta"})
         }
 
-        res.status(202).json({message: "Usuario loggeado"})
+        res.status(202).json({message: "Usuario loggeado", token: userLogged})
 
     }
 
@@ -113,7 +115,7 @@ abstract class UserController{
 
     static async logout(req: Request, res: Response){
 
-        const userId = req.params.id
+        const userId = res.locals.user.id
 
         const checkUser = await UserModel.logout(userId)
         

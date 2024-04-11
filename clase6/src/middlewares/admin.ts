@@ -3,7 +3,8 @@ import UserModel from '../model/user-model';
 
 async function isAdmin(req: Request, res: Response, next: NextFunction) {
 
-    let userId = req.params.id
+    let userId = res.locals.user.id
+    console.log("🚀 ~ isAdmin ~ userId:", userId)
 
     let userLogged = await UserModel.findUser(userId)
 

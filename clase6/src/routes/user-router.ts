@@ -16,16 +16,16 @@ UserRouter.get("/:id", UserController.getById)
 UserRouter.post("/login", UserController.login)
 
 // PATCH | 127.0.0.1/api/users/logout/:id --> Logout de usuario.
-UserRouter.delete("/logout/:id", isAuth, UserController.logout)
+UserRouter.delete("/logout", isAuth, UserController.logout)
 
 // POST | 127.0.0.1/api/users --> Dar de alta nuevo usuario.
-UserRouter.post("/", UserController.create)
+UserRouter.post("/", isAuth, isAdmin, UserController.create)
 
 // PATCH | 127.0.0.1/api/users/:id --> Actualizar un usuario.
 UserRouter.patch("/:id")
 
 // DELETE | 127.0.0.1/api/users/delete/:id --> Eliminar un usuario.
-UserRouter.delete("/delete/:id", isAuth, isAdmin, UserController.delete)
+UserRouter.delete("/delete", isAuth, isAdmin, UserController.delete)
 
 // NOT FOUND | 127.0.0.1/api/users/* --> Manejo de errores.
 UserRouter.use("*", UserController.error)
